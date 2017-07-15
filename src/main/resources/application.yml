@@ -1,0 +1,50 @@
+logging:
+  level:
+      org.springframework.web: DEBUG
+      com.osi.its: DEBUG
+  file: /temp/recruit/logs/application.log
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n" # Logging pattern for file
+  
+    
+spring:
+  application:
+    name: product-catalogue
+  data:
+    mongodb:
+      repositories:
+        enabled: true
+      database: osirpdb
+      host: localhost
+      port: 27017
+      
+#      uri: mongodb://127.0.0.1:27017/osirpdb
+#    redis:
+#      repositories:
+#        enabled: false
+    elasticsearch:
+        repositories:
+           enabled: false
+        cluster-name: irecruitsearch
+#  rabbitmq:
+#    host: localhost
+#    port: 5672
+#    username: admin
+#    password: secret
+  mail:
+    host: smtp.gmail.com
+    port: 25
+    username: ositechportal@gmail.com
+    password: ENC(HJsSzPsTbQIuQ9PhY5WOZSviVcXnreJ/) #123osi123
+
+server:
+  context-path: /product-catalogue
+  port: 9080
+management:
+  security:
+    enabled: false
+security:
+  basic:
+    enabled: false
+  require-ssl: false
